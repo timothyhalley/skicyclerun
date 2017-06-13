@@ -2,6 +2,9 @@
 
 ## Warning - this is an experiment and subject to lots of mistakes and errors.
 
+* Also it will include code from far better locations and sources. I would go there!
+* Just stay away as this is not a place to be!
+
 ## Getting Started
 
 To begin using this template, choose one of the following options to get started:
