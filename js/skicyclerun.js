@@ -1,0 +1,3 @@
+/*
+	Custom Function for skicyclerun.com
+*/

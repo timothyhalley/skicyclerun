@@ -1,0 +1,50 @@
+{
+  "title": "SkiCycleRun",
+  "name": "SkiCycleRun",
+  "version": "4.0.0-alpha",
+  "description": "Home for a traveler explorer and technologist.",
+  "keywords": [
+    "ski",
+    "cycle",
+    "run",
+    "beer",
+    "gravelgrinder",
+    "outsideisfree",
+    "adventure"
+  ],
+  "homepage": "https://skicyclerun.com",
+  "bugs": {
+    "url": "https://github.com/timothyhalley/skicyclerun/issues",
+    "email": "skicyclerun@gmail.com"
+  },
+  "license": "MIT",
+  "author": "Feo ElGato",
+  "contributors": [
+    "Tim Halley (http://www.linkedin.com/in/timothyhalley)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timothyhalley/skicyclerun.git"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "browser-sync": "^2.18.11",
+    "font-awesome": "4.7.0",
+    "gsap": "^1.19.1",
+    "jquery": "^3.2.1",
+    "jquery.easing": "^1.4.1",
+    "scrollmagic": "^2.0.5",
+    "tether": "^1.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.4.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-header": "^1.8.8",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "jshint": "^2.9.4"
+  }
+}
