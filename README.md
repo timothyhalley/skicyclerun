@@ -1,5 +1,7 @@
 # skicyclerun
 
+## Warning - this is an experiment and subject to lots of mistakes and errors.
+
 ## Getting Started
 
 To begin using this template, choose one of the following options to get started:
