@@ -5,8 +5,15 @@
 //ScrollMagic - create the controller
 var controller = new ScrollMagic.Controller();
 
-//build a scene
-var pinScene = new ScrollMagic.Scene({
-     triggerElement: "#pin-me",
-     duration: 300
-})
+// Parallax background
+new ScrollMagic.Scene({
+        triggerElement: "#parallax",
+        triggerHook: "onEnter",
+    })
+    .duration('200%')
+    .setTween("#parallax", {
+        backgroundPosition: "50% 100%",
+        ease: Linear.easeNone
+    })
+    //.addIndicators() // for debugging purposes
+    .addTo(controller);
