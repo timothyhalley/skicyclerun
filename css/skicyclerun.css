@@ -1,0 +1,15 @@
+.parallax {
+    background: url(/img/intro-bg.jpg) 50% 0;
+}
+
+.slidein {
+    background: #5b3030;
+}
+
+.slidein2 {
+    background: #304b5b;
+}
+
+.slidein2 .row {
+    justify-content: space-around;
+}
