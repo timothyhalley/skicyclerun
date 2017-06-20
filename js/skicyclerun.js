@@ -15,5 +15,5 @@ new ScrollMagic.Scene({
         backgroundPosition: "50% 100%",
         ease: Linear.easeNone
     })
-    //.addIndicators() // for debugging purposes
+    .addIndicators() // for debugging purposes
     .addTo(controller);

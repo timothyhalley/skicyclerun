@@ -1,5 +1,6 @@
 .parallax {
     background: url(/img/intro-bg.jpg) 50% 0;
+    background-color: blue;
 }
 
 .slidein {
