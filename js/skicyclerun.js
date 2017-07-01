@@ -2,18 +2,32 @@
 	Custom Function for skicyclerun.com
 */
 
-//ScrollMagic - create the controller
-var controller = new ScrollMagic.Controller();
+var scene = $( '.c-scene' );
+var sceneHeight = $( window ).height();
 
-// Parallax background
-new ScrollMagic.Scene({
-        triggerElement: "#parallax",
-        triggerHook: "onEnter",
-    })
-    .duration('200%')
-    .setTween("#parallax", {
-        backgroundPosition: "50% 100%",
-        ease: Linear.easeNone
-    })
-    //.addIndicators() // for debugging purposes
-    .addTo(controller);
+$( window ).resize( function()
+{
+    sceneHeight = $( window ).height();
+})
+
+var scrollMagicController = new ScrollMagic.Controller({
+    globalSceneOptions: {
+        triggerHook: 0,
+        duration: sceneHeight
+    }
+});
+
+
+for( var i = 1; i <= 4; i++ )
+{
+    var tween = TweenMax.to( "#scene" + i + " > .c-scene__content", 1, {
+        y: sceneHeight/2,
+        ease:Linear.easeNone,
+        autoAlpha: 0
+    });
+
+    new ScrollMagic.Scene({ triggerElement: "#scene" + i })
+        .setTween( tween )
+        .addIndicators()
+        .addTo( scrollMagicController )
+}
