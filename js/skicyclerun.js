@@ -1,7 +1,3 @@
-/*
-	Custom Function for skicyclerun.com
-*/
-
 var scene = $( '.c-scene' );
 var sceneHeight = $( window ).height();
 
@@ -17,6 +13,10 @@ var scrollMagicController = new ScrollMagic.Controller({
     }
 });
 
+new ScrollMagic.Scene({ triggerElement: "#aboutscene"})
+    .setTween( "about > section")
+    .addIndicators()
+    .addTo( scrollMagicController )
 
 for( var i = 1; i <= 4; i++ )
 {

@@ -1,5 +1,6 @@
 @import "variables.scss";
 @import "mixins.scss";
+
 body {
     width: 100%;
     height: 100%;
@@ -40,11 +41,12 @@ p {
 
 a {
     color: $primary;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-    &:hover,
-    &:focus {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    &:focus,
+    &:hover {
         text-decoration: none;
         color: darken($primary, 20%);
     }
@@ -56,30 +58,36 @@ a {
     text-transform: uppercase;
     font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: black;
+
     .navbar-toggler {
         color: white;
         font-size: 14px;
         border: 1px solid white;
         padding: 11px;
     }
+
     .navbar-brand {
         font-weight: 700;
     }
+
     a {
         color: white;
     }
+
     .navbar-nav {
         .nav-item {
-            -webkit-transition: background .3s ease-in-out;
-            -moz-transition: background .3s ease-in-out;
-            transition: background .3s ease-in-out;
+            -webkit-transition: background 0.3s ease-in-out;
+            -moz-transition: background 0.3s ease-in-out;
+            transition: background 0.3s ease-in-out;
+
             &:hover {
                 color: fade(white, 80%);
                 outline: none;
                 background-color: transparent;
             }
-            &:focus,
-            &:active {
+
+            &:active,
+            &:focus {
                 outline: none;
                 background-color: transparent;
             }
@@ -90,17 +98,20 @@ a {
         border-bottom: none;
         letter-spacing: 1px;
         background: transparent;
-        -webkit-transition: background .25s ease-in-out, padding .25s ease-in-out;
-        -moz-transition: background .25s ease-in-out, padding .25s ease-in-out;
-        transition: background .25s ease-in-out, padding .25s ease-in-out;
+        -webkit-transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+        -moz-transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+        transition: background 0.25s ease-in-out, padding 0.25s ease-in-out;
+
         &.navbar-shrink {
             padding: 10px 0;
             background: black;
             border-bottom: 1px solid fade-out(white, 0.7);
         }
+
         .nav-link.active {
             outline: none;
             background-color: rgba(white, 0.3);
+
             &:hover {
                 color: white;
             }
@@ -111,22 +122,25 @@ a {
 .masthead {
     display: table;
     width: 100%;
-    height: auto;
+    height: 100vh;
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(/img/NormadyBeachFrance.jpg) no-repeat bottom center scroll;
+    background: url("/img/NormadyBeachFrance.jpg") no-repeat bottom center scroll;
     background-color: grey;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
     .intro-body {
         display: table-cell;
         vertical-align: middle;
+
         .brand-heading {
             font-size: 40px;
         }
+
         .intro-text {
             font-size: 18px;
         }
@@ -134,10 +148,12 @@ a {
     @media(min-width:768px) {
         height: 100%;
         padding: 0;
+
         .intro-body {
             .brand-heading {
                 font-size: 100px;
             }
+
             .intro-text {
                 font-size: 22px;
             }
@@ -155,11 +171,12 @@ a {
     font-size: 26px;
     color: white;
     background: transparent;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-    &:hover,
-    &:focus {
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+
+    &:focus,
+    &:hover {
         outline: none;
         color: white;
         background: fade-out(white, 0.9);
@@ -172,9 +189,10 @@ a {
 
 .tech-section {
     width: 100%;
+    height: 100vh;
     padding: 50px 0;
     color: white;
-    background: url(/img/OrcasMtConstitutionTrail.jpg) no-repeat center center scroll;
+    // background: url("/img/OrcasMtConstitutionTrail.jpg") no-repeat center center scroll;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -187,14 +205,15 @@ a {
     height: 200px;
     margin-top: 100px;
 }
-
 @media(min-width:767px) {
     .content-section {
         padding-top: 250px;
     }
+
     .download-section {
         padding: 100px 0;
     }
+
     #map {
         height: 350px;
         margin-top: 250px;
@@ -205,9 +224,9 @@ a {
     text-transform: uppercase;
     font-family: "Cabin", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    transition: all .3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     border-radius: 0;
 }
 
@@ -215,8 +234,9 @@ a {
     border: 1px solid $primary;
     color: $primary;
     background-color: transparent;
-    &:hover,
-    &:focus {
+
+    &:focus,
+    &:hover {
         border: 1px solid $primary;
         outline: none;
         color: black;
@@ -234,6 +254,7 @@ ul.banner-social-buttons {
             display: block;
             margin-bottom: 20px;
             padding: 0;
+
             &:last-child {
                 margin-bottom: 0;
             }
@@ -243,6 +264,7 @@ ul.banner-social-buttons {
 
 footer {
     padding: 50px 0;
+
     p {
         font-size: 14px;
         margin: 0;
