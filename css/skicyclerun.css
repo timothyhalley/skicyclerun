@@ -3,13 +3,15 @@
  * Copyright 2017-2017 Feo ElGato
  * Licensed under MIT (https://github.com/timothyhalley/SkiCycleRun/LICENSE)
  */
+
 .aboutview {
   display: table;
   width: 100%;
   height: 100vh;
   padding: 100px 0;
   text-align: center;
-  color: white; }
+  color: white;
+}
 
 #aboutscene {
   height: 100vh;
@@ -18,13 +20,15 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-image: linear-gradient(#7ECB61, #53CBB8); }
+  background-image: linear-gradient(#7ECB61, #53CBB8);
+}
 
 .flex-wrapper {
   background: #444;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .c-scene {
   height: 100vh;
@@ -32,36 +36,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden; }
+  overflow: hidden;
+}
 
 .c-scene__content {
   color: white;
   max-width: 80%;
-  position: relative; }
+  position: relative;
+}
 
 .c-scene__quote {
   font-family: 'Lora', serif;
   font-size: 40px;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 .c-scene__author {
   font-size: 0.8em;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  opacity: 0.5; }
+  opacity: 0.5;
+}
 
 #scene1 {
   background-color: #7ECB61;
-  background-image: linear-gradient(#7ECB61, #53CBB8); }
+  background-image: linear-gradient(#7ECB61, #53CBB8);
+  background: url("/img/WhistlerVillageLite.jpg");
+}
 
 #scene2 {
   background-color: #D74848;
-  background-image: linear-gradient(#D74848, #DB905C); }
+  background-image: linear-gradient(#D74848, #DB905C);
+  background: url("/img/PortTownsendBeforeStorm1.jpg");
+}
 
 #scene3 {
   background-color: #7453CB;
-  background-image: linear-gradient(#7453CB, #3EA7E4); }
+  background-image: linear-gradient(#7453CB, #3EA7E4);
+  background: url("/img/OrcasMtConstitutionTrail.jpg");
+}
 
 #scene4 {
   background-color: #9F40A1;
-  background-image: linear-gradient(#9F40A1, #E6868C); }
+  background-image: linear-gradient(#9F40A1, #E6868C);
+}
