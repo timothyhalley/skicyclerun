@@ -20,7 +20,7 @@ var banner = ['/*!\n',
 
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function() {
-    return gulp.src(['scss/grayscale.scss', 'scss/skicyclerun.scss'])
+    return gulp.src(['scss/grayscale.scss', 'scss/skicyclerun.scss', 'scss/alpha.scss'])
         .pipe(sass())
         .pipe(header(banner, {
             pkg: pkg
@@ -50,7 +50,7 @@ gulp.task('minify-css', ['sass'], function() {
 
 // Minify custom JS
 gulp.task('minify-js', function() {
-    return gulp.src(['js/grayscale.js', 'js/skicyclerun.js'])
+    return gulp.src(['js/grayscale.js', 'js/skicyclerun.js', 'js/alpha.js'])
         .pipe(uglify())
         .pipe(header(banner, {
             pkg: pkg
