@@ -94,6 +94,10 @@ gulp.task('copy', function() {
         .pipe(changed('vendor/jquery-easing'))
         .pipe(gulp.dest('vendor/jquery-easing'))
 
+    gulp.src(['node_modules/normalize.css/*.css'])
+        .pipe(changed('vendor/normalize.css'))
+        .pipe(gulp.dest('vendor/normalize.css'))
+
     gulp.src([
             'node_modules/font-awesome/**',
             '!node_modules/font-awesome/**/*.map',
