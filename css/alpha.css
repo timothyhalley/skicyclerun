@@ -1,27 +1,26 @@
-/*!
- * Start Bootstrap - SkiCycleRun v4.0.0-alpha (https://skicyclerun.com)
- * Copyright 2017-2017 Feo ElGato
- * Licensed under MIT (https://github.com/timothyhalley/SkiCycleRun/LICENSE)
- */
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+}
 
 body {
   font-family: sans-serif;
   background-color: #000;
-  position: relative; }
+  position: relative;
+}
 
 /* ---- grid ---- */
 /* clearfix */
 .grid:after {
   content: '';
   display: block;
-  clear: both; }
+  clear: both;
+}
 
 /* ---- grid-item ---- */
 .grid-sizer,
 .grid-item {
-  width: 25%; }
+  width: 25%;
+}
 
 .grid-item {
   height: 200px;
@@ -34,11 +33,13 @@ body {
   background-image: url(https://unsplash.it/900/900);
   background-size: cover;
   background-position: center center;
-  transition: all 0.35s ease-in-out; }
+  transition: all 0.35s ease-in-out;
+}
 
 .grid-item:hover {
   cursor: pointer;
-  -webkit-filter: grayscale(0%) blur(0); }
+  -webkit-filter: grayscale(0%) blur(0);
+}
 
 .grid-alpha {
   display: none;
@@ -48,440 +49,197 @@ body {
   height: 100%;
   top: 0;
   left: 0;
-  text-align: center; }
+  text-align: center;
+}
 
 .grid-alpha:hover {
-  cursor: zoom-out; }
+  cursor: zoom-out;
+}
 
 .grid-item.item-opened {
   width: 80%;
   height: 80vw;
   border: 3px solid #e8e8e8;
-  -webkit-filter: grayscale(0%) blur(0); }
+  -webkit-filter: grayscale(0%) blur(0);
+}
 
 .grid-item--width2 {
-  width: 50%; }
+  width: 50%;
+}
 
 .grid-item--height2 {
-  height: 400px; }
+  height: 400px;
+}
 
 .grid-item--height3 {
-  height: 600px; }
+  height: 600px;
+}
 
 @media only screen and (max-width: 580px) {
   .grid-item {
-    width: 50%; }
-  .grid-item--width2 {
-    width: 100%; } }
+    width: 50%;
+  }
 
+  .grid-item--width2 {
+    width: 100%;
+  }
+}
 .grid-item:nth-child(1) {
-  background-image: url("https://unsplash.it/900/900?image=11"); }
+  background-image: url("https://unsplash.it/900/900?image=11");
+}
 
 .grid-item:nth-child(2) {
-  background-image: url("https://unsplash.it/900/900?image=12"); }
+  background-image: url("https://unsplash.it/900/900?image=12");
+}
 
 .grid-item:nth-child(3) {
-  background-image: url("https://unsplash.it/900/900?image=13"); }
+  background-image: url("https://unsplash.it/900/900?image=13");
+}
 
 .grid-item:nth-child(4) {
-  background-image: url("https://unsplash.it/900/900?image=14"); }
+  background-image: url("https://unsplash.it/900/900?image=14");
+}
 
 .grid-item:nth-child(5) {
-  background-image: url("https://unsplash.it/900/900?image=15"); }
+  background-image: url("https://unsplash.it/900/900?image=15");
+}
 
 .grid-item:nth-child(6) {
-  background-image: url("https://unsplash.it/900/900?image=16"); }
+  background-image: url("https://unsplash.it/900/900?image=16");
+}
 
 .grid-item:nth-child(7) {
-  background-image: url("https://unsplash.it/900/900?image=17"); }
+  background-image: url("https://unsplash.it/900/900?image=17");
+}
 
 .grid-item:nth-child(8) {
-  background-image: url("https://unsplash.it/900/900?image=18"); }
+  background-image: url("https://unsplash.it/900/900?image=18");
+}
 
 .grid-item:nth-child(9) {
-  background-image: url("https://unsplash.it/900/900?image=19"); }
+  background-image: url("https://unsplash.it/900/900?image=19");
+}
 
 .grid-item:nth-child(10) {
-  background-image: url("https://unsplash.it/900/900?image=110"); }
+  background-image: url("https://unsplash.it/900/900?image=110");
+}
 
 .grid-item:nth-child(11) {
-  background-image: url("https://unsplash.it/900/900?image=111"); }
+  background-image: url("https://unsplash.it/900/900?image=111");
+}
 
 .grid-item:nth-child(12) {
-  background-image: url("https://unsplash.it/900/900?image=112"); }
+  background-image: url("https://unsplash.it/900/900?image=112");
+}
 
 .grid-item:nth-child(13) {
-  background-image: url("https://unsplash.it/900/900?image=113"); }
+  background-image: url("https://unsplash.it/900/900?image=113");
+}
 
 .grid-item:nth-child(14) {
-  background-image: url("https://unsplash.it/900/900?image=114"); }
+  background-image: url("https://unsplash.it/900/900?image=114");
+}
 
 .grid-item:nth-child(15) {
-  background-image: url("https://unsplash.it/900/900?image=115"); }
+  background-image: url("https://unsplash.it/900/900?image=115");
+}
 
 .grid-item:nth-child(16) {
-  background-image: url("https://unsplash.it/900/900?image=116"); }
+  background-image: url("https://unsplash.it/900/900?image=116");
+}
 
 .grid-item:nth-child(17) {
-  background-image: url("https://unsplash.it/900/900?image=117"); }
+  background-image: url("https://unsplash.it/900/900?image=117");
+}
 
 .grid-item:nth-child(18) {
-  background-image: url("https://unsplash.it/900/900?image=118"); }
+  background-image: url("https://unsplash.it/900/900?image=118");
+}
 
 .grid-item:nth-child(19) {
-  background-image: url("https://unsplash.it/900/900?image=119"); }
+  background-image: url("https://unsplash.it/900/900?image=119");
+}
 
 .grid-item:nth-child(20) {
-  background-image: url("https://unsplash.it/900/900?image=120"); }
+  background-image: url("https://unsplash.it/900/900?image=120");
+}
 
 .grid-item:nth-child(21) {
-  background-image: url("https://unsplash.it/900/900?image=121"); }
+  background-image: url("https://unsplash.it/900/900?image=121");
+}
 
 .grid-item:nth-child(22) {
-  background-image: url("https://unsplash.it/900/900?image=122"); }
+  background-image: url("https://unsplash.it/900/900?image=122");
+}
 
 .grid-item:nth-child(23) {
-  background-image: url("https://unsplash.it/900/900?image=123"); }
+  background-image: url("https://unsplash.it/900/900?image=123");
+}
 
 .grid-item:nth-child(24) {
-  background-image: url("https://unsplash.it/900/900?image=124"); }
+  background-image: url("https://unsplash.it/900/900?image=124");
+}
 
 .grid-item:nth-child(25) {
-  background-image: url("https://unsplash.it/900/900?image=125"); }
+  background-image: url("https://unsplash.it/900/900?image=125");
+}
 
 .grid-item:nth-child(26) {
-  background-image: url("https://unsplash.it/900/900?image=126"); }
+  background-image: url("https://unsplash.it/900/900?image=126");
+}
 
 .grid-item:nth-child(27) {
-  background-image: url("https://unsplash.it/900/900?image=127"); }
+  background-image: url("https://unsplash.it/900/900?image=127");
+}
 
 .grid-item:nth-child(28) {
-  background-image: url("https://unsplash.it/900/900?image=128"); }
+  background-image: url("https://unsplash.it/900/900?image=128");
+}
 
 .grid-item:nth-child(29) {
-  background-image: url("https://unsplash.it/900/900?image=129"); }
+  background-image: url("https://unsplash.it/900/900?image=129");
+}
 
 .grid-item:nth-child(30) {
-  background-image: url("https://unsplash.it/900/900?image=130"); }
+  background-image: url("https://unsplash.it/900/900?image=130");
+}
 
 .grid-item:nth-child(31) {
-  background-image: url("https://unsplash.it/900/900?image=131"); }
+  background-image: url("https://unsplash.it/900/900?image=131");
+}
 
 .grid-item:nth-child(32) {
-  background-image: url("https://unsplash.it/900/900?image=132"); }
+  background-image: url("https://unsplash.it/900/900?image=132");
+}
 
 .grid-item:nth-child(33) {
-  background-image: url("https://unsplash.it/900/900?image=133"); }
+  background-image: url("https://unsplash.it/900/900?image=133");
+}
 
 .grid-item:nth-child(34) {
-  background-image: url("https://unsplash.it/900/900?image=134"); }
+  background-image: url("https://unsplash.it/900/900?image=134");
+}
 
 .grid-item:nth-child(35) {
-  background-image: url("https://unsplash.it/900/900?image=135"); }
+  background-image: url("https://unsplash.it/900/900?image=135");
+}
 
 .grid-item:nth-child(36) {
-  background-image: url("https://unsplash.it/900/900?image=136"); }
+  background-image: url("https://unsplash.it/900/900?image=136");
+}
 
 .grid-item:nth-child(37) {
-  background-image: url("https://unsplash.it/900/900?image=137"); }
+  background-image: url("https://unsplash.it/900/900?image=137");
+}
 
 .grid-item:nth-child(38) {
-  background-image: url("https://unsplash.it/900/900?image=138"); }
+  background-image: url("https://unsplash.it/900/900?image=138");
+}
 
 .grid-item:nth-child(39) {
-  background-image: url("https://unsplash.it/900/900?image=139"); }
+  background-image: url("https://unsplash.it/900/900?image=139");
+}
 
 .grid-item:nth-child(40) {
-  background-image: url("https://unsplash.it/900/900?image=140"); }
-
-.container {
-  display: grid;
-  grid-template-columns: 150px 150px 150px;
-  grid-template-rows: 150px 150px;
-  grid-gap: 1rem; }
-
-/* OTHER STYLES */
-body {
-  background-color: #3b404e;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
-.item {
-  background-color: #1EAAFC;
-  background-image: linear-gradient(130deg, #6C52D9 0%, #1EAAFC 85%, #3EDFD7 100%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  color: #fff;
-  border-radius: 4px;
-  border: 6px solid #171717; }
-
-html {
-  box-sizing: border-box; }
-
-*, *:before, *:after {
-  box-sizing: inherit; }
-
-html {
-  background: #0e1a25;
-  font-size: 0.625em; }
-
-.soc {
-  display: block;
-  font-size: 0;
-  list-style: none;
-  margin: 0;
-  padding: 48px;
-  padding: 4.8rem;
-  text-align: center; }
-
-.soc li {
-  display: inline-block;
-  margin: 12px;
-  margin: 1.2rem; }
-
-.soc a, .soc svg {
-  display: block; }
-
-.soc a {
-  position: relative;
-  height: 96px;
-  height: 9.6rem;
-  width: 96px;
-  width: 9.6rem; }
-
-.soc svg {
-  height: 100%;
-  width: 100%; }
-
-.soc em {
-  font-size: 14px;
-  line-height: 1.5;
-  margin-top: -0.75em;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  right: 0;
-  bottom: 0;
-  left: 0; }
-
-.icon-1:hover, .icon-2:hover, .icon-3:hover, .icon-4:hover, .icon-5:hover, .icon-6:hover, .icon-7:hover, .icon-8:hover, .icon-9:hover, .icon-10:hover, .icon-11:hover, .icon-12:hover, .icon-13:hover, .icon-14:hover, .icon-15:hover, .icon-16:hover, .icon-17:hover, .icon-18:hover, .icon-19:hover, .icon-20:hover, .icon-21:hover, .icon-22:hover, .icon-23:hover, .icon-24:hover, .icon-25:hover, .icon-26:hover, .icon-27:hover, .icon-28:hover, .icon-29:hover, .icon-30:hover {
-  border-radius: 100%;
-  color: #0e1a25;
-  fill: #0e1a25;
-  -webkit-transform: scale(1.25);
-  transform: scale(1.25);
-  -webkit-transition: background-color 0.5s, -webkit-transform 0.5s ease-out;
-  transition: background-color 0.5s, -webkit-transform 0.5s ease-out;
-  transition: background-color 0.5s, transform 0.5s ease-out;
-  transition: background-color 0.5s, transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
-
-.icon-1 {
-  color: #d94a26;
-  fill: #d94a26; }
-
-.icon-1:hover {
-  background: #d94a26; }
-
-.icon-2 {
-  color: #d96e26;
-  fill: #d96e26; }
-
-.icon-2:hover {
-  background: #d96e26; }
-
-.icon-3 {
-  color: #d99126;
-  fill: #d99126; }
-
-.icon-3:hover {
-  background: #d99126; }
-
-.icon-4 {
-  color: #d9b526;
-  fill: #d9b526; }
-
-.icon-4:hover {
-  background: #d9b526; }
-
-.icon-5 {
-  color: #d9d926;
-  fill: #d9d926; }
-
-.icon-5:hover {
-  background: #d9d926; }
-
-.icon-6 {
-  color: #b5d926;
-  fill: #b5d926; }
-
-.icon-6:hover {
-  background: #b5d926; }
-
-.icon-7 {
-  color: #91d926;
-  fill: #91d926; }
-
-.icon-7:hover {
-  background: #91d926; }
-
-.icon-8 {
-  color: #6ed926;
-  fill: #6ed926; }
-
-.icon-8:hover {
-  background: #6ed926; }
-
-.icon-9 {
-  color: #4ad926;
-  fill: #4ad926; }
-
-.icon-9:hover {
-  background: #4ad926; }
-
-.icon-10 {
-  color: #26d926;
-  fill: #26d926; }
-
-.icon-10:hover {
-  background: #26d926; }
-
-.icon-11 {
-  color: #26d94a;
-  fill: #26d94a; }
-
-.icon-11:hover {
-  background: #26d94a; }
-
-.icon-12 {
-  color: #26d96e;
-  fill: #26d96e; }
-
-.icon-12:hover {
-  background: #26d96e; }
-
-.icon-13 {
-  color: #26d991;
-  fill: #26d991; }
-
-.icon-13:hover {
-  background: #26d991; }
-
-.icon-14 {
-  color: #26d9b5;
-  fill: #26d9b5; }
-
-.icon-14:hover {
-  background: #26d9b5; }
-
-.icon-15 {
-  color: #26d9d9;
-  fill: #26d9d9; }
-
-.icon-15:hover {
-  background: #26d9d9; }
-
-.icon-16 {
-  color: #26b5d9;
-  fill: #26b5d9; }
-
-.icon-16:hover {
-  background: #26b5d9; }
-
-.icon-17 {
-  color: #2691d9;
-  fill: #2691d9; }
-
-.icon-17:hover {
-  background: #2691d9; }
-
-.icon-18 {
-  color: #266ed9;
-  fill: #266ed9; }
-
-.icon-18:hover {
-  background: #266ed9; }
-
-.icon-19 {
-  color: #264ad9;
-  fill: #264ad9; }
-
-.icon-19:hover {
-  background: #264ad9; }
-
-.icon-20 {
-  color: #2626d9;
-  fill: #2626d9; }
-
-.icon-20:hover {
-  background: #2626d9; }
-
-.icon-21 {
-  color: #4a26d9;
-  fill: #4a26d9; }
-
-.icon-21:hover {
-  background: #4a26d9; }
-
-.icon-22 {
-  color: #6e26d9;
-  fill: #6e26d9; }
-
-.icon-22:hover {
-  background: #6e26d9; }
-
-.icon-23 {
-  color: #9126d9;
-  fill: #9126d9; }
-
-.icon-23:hover {
-  background: #9126d9; }
-
-.icon-24 {
-  color: #b526d9;
-  fill: #b526d9; }
-
-.icon-24:hover {
-  background: #b526d9; }
-
-.icon-25 {
-  color: #d926d9;
-  fill: #d926d9; }
-
-.icon-25:hover {
-  background: #d926d9; }
-
-.icon-26 {
-  color: #d926b5;
-  fill: #d926b5; }
-
-.icon-26:hover {
-  background: #d926b5; }
-
-.icon-27 {
-  color: #d92691;
-  fill: #d92691; }
-
-.icon-27:hover {
-  background: #d92691; }
-
-.icon-28 {
-  color: #d9266e;
-  fill: #d9266e; }
-
-.icon-28:hover {
-  background: #d9266e; }
-
-.icon-29 {
-  color: #d9264a;
-  fill: #d9264a; }
-
-.icon-29:hover {
-  background: #d9264a; }
-
-.icon-30 {
-  color: #d92626;
-  fill: #d92626; }
-
-.icon-30:hover {
-  background: #d92626; }
+  background-image: url("https://unsplash.it/900/900?image=140");
+}
