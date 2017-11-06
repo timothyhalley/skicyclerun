@@ -6,14 +6,15 @@ var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
+var zip = require('gulp-zip');
 var pump = require('pump');
 var pkg = require('./package.json');
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
   ' * Copyright 2017-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/timothyhalley/<%= pkg.name %>/LICENSE)\n',
+  ' * Licensed under <%= pkg.license %> repository <%= pkg.repository.url %>\n',
   ' */\n',
   ''
 ].join('');
