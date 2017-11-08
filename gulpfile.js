@@ -66,16 +66,6 @@ gulp.task('minify-js', function() {
     }))
 });
 
-// gulp.task('minify-js', function (cb) {
-//   pump([
-//         gulp.src('js/*.js'),
-//         uglify(),
-//         gulp.dest('js')
-//     ],
-//     cb
-//   );
-// });
-
 // Copy vendor files from /node_modules into /vendor
 // NOTE: requires `npm install` before running!
 gulp.task('copy', function() {
@@ -126,8 +116,15 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('vendor/masonry'))
 })
 
+// ZIP task
+gulp.task('zip', function () {
+    return gulp.src('./api/*')
+        .pipe(zip('api.zip'))
+        .pipe(gulp.dest('./'));
+});
+
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy']);
+gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy', 'zip']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
