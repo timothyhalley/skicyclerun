@@ -118,7 +118,7 @@ gulp.task('copy', function() {
 
 // ZIP task
 gulp.task('zip', function () {
-    return gulp.src('./api/*')
+    return gulp.src(['./api/*'], {base: './api/'})
         .pipe(zip('api.zip'))
         .pipe(gulp.dest('./'));
 });
