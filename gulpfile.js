@@ -116,15 +116,26 @@ gulp.task('copy', function() {
     .pipe(gulp.dest('vendor/masonry'))
 })
 
-// ZIP task
-gulp.task('zip', function () {
-    return gulp.src(['./api/*'], {base: './api/'})
-        .pipe(zip('api.zip'))
-        .pipe(gulp.dest('./'));
-});
+// ZIP tasks
+// gulp.task('zip_resize', function() {
+//   return gulp.src(['./api/resize/**'], {
+//       base: './api/resize/'
+//     })
+//     .pipe(changed('./api/resize/index.*'))
+//     .pipe(zip('resize.zip'))
+//     .pipe(gulp.dest('./api'));
+// });
+
+gulp.task('zip_hello', () =>
+    gulp.src('./api/hello/*', {base:'./api/hello/.'})
+        .pipe(changed('./api/hello/**'))
+        .pipe(zip('hello.zip', {base:'.'}))
+        .pipe(gulp.dest('./api'))
+);
+
 
 // Default task
-gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy', 'zip']);
+gulp.task('default', ['sass', 'minify-css', 'minify-js', 'copy', 'zip_hello']);
 
 // Configure the browserSync task
 gulp.task('browserSync', function() {
