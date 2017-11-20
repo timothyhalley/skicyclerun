@@ -1,19 +1,16 @@
-var ApiBuilder = require('claudia-api-builder');
-var api = new ApiBuilder();
-var AWS = require('aws-sdk');
-AWS.config.update({region: 'us-west-2'});
-var Sharp = require('sharp');
-var BUCKET = process.env.BUCKET;
-var URL = process.env.URL;
-var S3 = new AWS.S3({
+'use strict';
+
+const AWS = require('aws-sdk');
+const S3 = new AWS.S3({
   signatureVersion: 'v4',
 });
+const Sharp = require('sharp');
 
-module.exports = api;
+const BUCKET = process.env.BUCKET;
+const URL = process.env.URL;
 
 exports.handler = function(event, context, callback) {
   const key = event.queryStringParameters.key;
-
   const match = key.match(/(\d+)x(\d+)\/(.*)/);
   const width = parseInt(match[1], 10);
   const height = parseInt(match[2], 10);
@@ -39,4 +36,4 @@ exports.handler = function(event, context, callback) {
       })
     )
     .catch(err => callback(err))
-};
+}
