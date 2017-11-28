@@ -11,9 +11,9 @@ aws apigateway test-invoke-method \
 # --payload file://./event.json \
 # ./results.txt
 
-echo results:
-echo
-cat ./results.txt
+# echo results:
+# echo
+# cat ./results.txt
 echo
 echo finished
 echo
