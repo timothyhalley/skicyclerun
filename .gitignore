@@ -2,6 +2,7 @@
 ###################
 node_modules/
 vendor/
+PhotoLib/
 package-lock.json
 
 # Compiled source #
