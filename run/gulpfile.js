@@ -1,17 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 var gulp = require('gulp');
 var changed = require('gulp-changed');
 var sass = require('gulp-sass');
