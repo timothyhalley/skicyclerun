@@ -2,9 +2,7 @@
 #
 aws sts get-caller-identity
 
-aws s3 sync ~/Projects/skicyclerun.com s3://skicyclerun.com \
-  --exclude "api/*" \
-  --exclude "PhotoLib/*" \
+aws s3 sync ~/Projects/SkiCycleRun/skicyclerun.com s3://skicyclerun.com \
   --exclude "node_modules/*" \
   --exclude "run/*" \
   --exclude ".git/*" \
