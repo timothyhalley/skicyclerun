@@ -87,8 +87,7 @@ body {
   .grid-item:nth-child(#{$item}){
     $rndVal: random(100) + 99;
     $rndPic: random(1000);
-    background-image: url('https://img.skicyclerun.com/pub/#{$rndVal}.jpg');
-    //background-image: url('https://unsplash.it/900/900?image=1#{$item}');
-    //background-image: url('https://unsplash.it/#{$rndPic}?image=1#{$rndVal}');
+    // must be a valid s3:album - image is random place holder
+    background-image: url('https://img.skicyclerun.com/skiCycleRun/#{$rndVal}.jpg');
   }
 }

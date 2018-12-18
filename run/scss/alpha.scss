@@ -1,3 +1,4 @@
+/* https://masonry.desandro.com/ */
 * { box-sizing: border-box; }
 
 body {
@@ -30,7 +31,7 @@ body {
   -webkit-filter: grayscale(70%) blur(0.5px);
   -webkit-transform: translateZ(0);
    transform: translateZ(0);
-  background-image: url(https://unsplash.it/900/900);
+  background-image: url(https://img.skicyclerun.com/skiCycleRun/010101.jpg);
   background-size: cover;
   background-position: center center;
   transition: all 0.35s ease-in-out;
@@ -58,7 +59,7 @@ body {
 .grid-item.item-opened{
   width: 80%;
   height: 80vw;
-  border: 3px solid #e8e8e8;
+  border: 3px solid #060606;
   -webkit-filter: grayscale(0%) blur(0);
   }
 
@@ -87,10 +88,7 @@ body {
   .grid-item:nth-child(#{$item}){
     $rndVal: random(100) + 999;
     $rndPic: random(1000);
-    //background-image: url('https://unsplash.it/900/900?image=1#{$item}');
-    //background-image: url('https://img.skicyclerun.com/100#{$rndVal}')
-    //background-image: url('https://unsplash.it/#{$rndPic}?image=1#{$rndVal}');
-    //background-image: url('https://api.skicyclerun.com/deadpool/img/BlackWhite/#{$rndVal}');
-    background-image: url('https://img.skicyclerun.com/pub/#{$rndVal}.jpg');
+    // must be a valid s3:album - image is random place holder
+    background-image: url('https://img.skicyclerun.com/skiCycleRun/#{$rndVal}.jpg');
   }
 }
