@@ -75,6 +75,7 @@ body {
     width: 100%; } }
 
 .grid-item:nth-child(1) {
+<<<<<<< HEAD
   background-image: url("https://img.skicyclerun.com/skiCycleRun/191.jpg"); }
 
 .grid-item:nth-child(2) {
@@ -193,3 +194,123 @@ body {
 
 .grid-item:nth-child(40) {
   background-image: url("https://img.skicyclerun.com/skiCycleRun/108.jpg"); }
+=======
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/121.jpg"); }
+
+.grid-item:nth-child(2) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/122.jpg"); }
+
+.grid-item:nth-child(3) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/184.jpg"); }
+
+.grid-item:nth-child(4) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/175.jpg"); }
+
+.grid-item:nth-child(5) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/173.jpg"); }
+
+.grid-item:nth-child(6) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/169.jpg"); }
+
+.grid-item:nth-child(7) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/150.jpg"); }
+
+.grid-item:nth-child(8) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/181.jpg"); }
+
+.grid-item:nth-child(9) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/162.jpg"); }
+
+.grid-item:nth-child(10) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/120.jpg"); }
+
+.grid-item:nth-child(11) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/191.jpg"); }
+
+.grid-item:nth-child(12) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/128.jpg"); }
+
+.grid-item:nth-child(13) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/100.jpg"); }
+
+.grid-item:nth-child(14) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/151.jpg"); }
+
+.grid-item:nth-child(15) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/149.jpg"); }
+
+.grid-item:nth-child(16) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/139.jpg"); }
+
+.grid-item:nth-child(17) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/173.jpg"); }
+
+.grid-item:nth-child(18) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/160.jpg"); }
+
+.grid-item:nth-child(19) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/154.jpg"); }
+
+.grid-item:nth-child(20) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/105.jpg"); }
+
+.grid-item:nth-child(21) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/149.jpg"); }
+
+.grid-item:nth-child(22) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/153.jpg"); }
+
+.grid-item:nth-child(23) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/107.jpg"); }
+
+.grid-item:nth-child(24) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/188.jpg"); }
+
+.grid-item:nth-child(25) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/175.jpg"); }
+
+.grid-item:nth-child(26) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/142.jpg"); }
+
+.grid-item:nth-child(27) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/187.jpg"); }
+
+.grid-item:nth-child(28) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/148.jpg"); }
+
+.grid-item:nth-child(29) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/169.jpg"); }
+
+.grid-item:nth-child(30) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/171.jpg"); }
+
+.grid-item:nth-child(31) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/136.jpg"); }
+
+.grid-item:nth-child(32) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/116.jpg"); }
+
+.grid-item:nth-child(33) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/148.jpg"); }
+
+.grid-item:nth-child(34) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/119.jpg"); }
+
+.grid-item:nth-child(35) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/190.jpg"); }
+
+.grid-item:nth-child(36) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/135.jpg"); }
+
+.grid-item:nth-child(37) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/116.jpg"); }
+
+.grid-item:nth-child(38) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/135.jpg"); }
+
+.grid-item:nth-child(39) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/183.jpg"); }
+
+.grid-item:nth-child(40) {
+  background-image: url("https://img.skicyclerun.com/SkiCycleRun/114.jpg"); }
+>>>>>>> 54af86e3513d6ea07a3cbd187cd787ed79fe8a80
