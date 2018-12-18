@@ -85,7 +85,7 @@ body {
 // Random Image loop - change $item to random() --> https://blog.codepen.io/2013/08/26/random-function-in-sass/
 @for $item from 1 through 40{
   .grid-item:nth-child(#{$item}){
-    $rndVal: random(100) + 99;
+    $rndVal: random(300) + 99;
     $rndPic: random(1000);
 
     // must be a valid s3:album - image is random place holder
