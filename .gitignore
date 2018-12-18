@@ -3,6 +3,7 @@
 node_modules/
 vendor/
 css/
+js/
 PhotoLib/
 package-lock.json
 
