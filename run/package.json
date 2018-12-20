@@ -36,6 +36,7 @@
     "normalize.css": "^7.0.0"
   },
   "devDependencies": {
+    "express": "^4.16.4",
     "gulp": "^4.0.0",
     "gulp-changed": "^3.1.1",
     "gulp-clean-css": "^3.9.0",
