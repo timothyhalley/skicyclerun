@@ -31,7 +31,7 @@ function customMarker(latlng, map, args) {
 
 function getPhotoElements() {
 
-  fetch('https://img.skicyclerun.com/private/db.json')
+  fetch('https://img.skicyclerun.com/private/db.json', {mode: 'no-cors', cache: 'no-cache'})
     .then(function(response) {
       return response.json();
     })

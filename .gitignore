@@ -4,6 +4,7 @@ node_modules/
 vendor/
 PhotoLib/
 package-lock.json
+run/certs/
 
 # Compiled source #
 ###################
