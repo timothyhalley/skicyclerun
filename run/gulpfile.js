@@ -49,7 +49,7 @@ gulp.task('sass', function(done) {
 
 // Minify custom JS
 gulp.task('minify-js', function(done) {
-  return gulp.src(['js/skicyclerun.js', 'js/alpha.js'])
+  return gulp.src(['js/skicyclerun.js', 'js/alpha.js', 'js/alphamap.js'])
     .pipe(uglify())
     .pipe(header(banner, {
       pkg: pkg
