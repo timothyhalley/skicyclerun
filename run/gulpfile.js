@@ -5,7 +5,7 @@ var sass = require('gulp-sass');
 var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
-var uglify = require('gulp-uglify');
+let uglify = require('gulp-uglify-es').default;
 var pkg = require('./package.json');
 
 // Set the banner content

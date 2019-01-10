@@ -29,17 +29,9 @@ function customMarker(latlng, map, args) {
 	this.setMap(map);
 }
 
-function getPhotoElements() {
-
-  fetch('https://img.skicyclerun.com/private/db.json', {mode: 'no-cors', cache: 'no-cache'})
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      var gpsJSON = JSON.stringify(myJson)
-      console.log(gpsJSON);
-      return gpsJSON;
-    });
+const getPhotoElements = () => {
+  return fetch('https://img.skicyclerun.com/private/db.json', {cache: 'no-cache'})
+    .then(response => response.json()) // parse JSON
 }
 
 function setGoogleMap() {
@@ -63,6 +55,7 @@ function setGoogleMap() {
   		}
 
   		google.maps.event.addDomListener(div, 'click', function (event) {
+        console.asert('click function triggered here --> ')
   			google.maps.event.trigger(self, 'click');
   		});
 
@@ -290,77 +283,11 @@ function initMap2() {
 		]
     };
 
-	map = new google.maps.Map(mapCanvas, mapOptions);
+	let map = new google.maps.Map(mapCanvas, mapOptions);
 
-  var gpsPoints = getPhotoElements();
-  console.assert('here are the points: ')
-
-	// Get list of hotels
-	var hotels = document.getElementById('hotel-list').children;
-
-	// Go thru list of hotels
-	for (var a = 0, al = hotels.length; a < al; a++) {
-		// Make marker for every hotel using the data properties from the hotel list
-		var hotelMarker = new customMarker(new google.maps.LatLng(hotels[a].getAttribute('data-lat'), hotels[a].getAttribute('data-lng')), map, {
-			class_name: 'hotel-marker',
-			marker_id: hotels[a].id,
-			price: hotels[a].getAttribute('data-price')
-		});
-
-		// Make markers clickable
-		hotelMarker.addListener('click', function (event) {
-			// Get list of markers
-			var markers = document.querySelectorAll('.hotel-marker');
-
-			// Go thru list of markers
-			for (var m = 0, ml = markers.length; m < ml; m++) {
-				if (markers[m].getAttribute('data-marker_id') == this.div.getAttribute('data-marker_id')) {
-					markers[m].classList.add('js-active');
-				} else {
-					markers[m].classList.remove('js-active');
-				}
-			}
-
-			// Get list of hotels
-			var hotels = document.getElementById('hotel-list').children;
-
-			// Go thru list of hotels
-			for (var h = 0, hl = hotels.length; h < hl; h++) {
-				if (hotels[h].id === this.div.getAttribute('data-marker_id')) {
-					hotels[h].classList.add('js-active');
-				} else {
-					hotels[h].classList.remove('js-active');
-				}
-			}
-		});
-
-		// Make list items clickable
-		hotels[a].addEventListener('click', function (event) {
-			// Get list of markers
-			var markers = document.querySelectorAll('.hotel-marker');
-
-			// Go thru list of markers
-			for (var m = 0, ml = markers.length; m < ml; m++) {
-				if (markers[m].getAttribute('data-marker_id') == this.id) {
-					markers[m].classList.add('js-active');
-				} else {
-					markers[m].classList.remove('js-active');
-				}
-			}
-
-			// Get list of hotels
-			var hotels = document.getElementById('hotel-list').children;
-
-			// Go thru list of hotels
-			for (var h = 0, hl = hotels.length; h < hl; h++) {
-				if (hotels[h].id === this.id) {
-					hotels[h].classList.add('js-active');
-				} else {
-					hotels[h].classList.remove('js-active');
-				}
-			}
-		});
-	}
+  // google.maps.event.addDomListener(map, 'click', function() {
+  //   window.alert('Map was clicked!');
+  // });
 
 	google.maps.event.addDomListener(map, 'idle', function () {
 		mapCenter = map.getCenter();

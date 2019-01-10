@@ -14,6 +14,7 @@ $('.grid').masonry({
 $('.grid-item').click(function(event) {
   // Check if not already open
   if (!$(this).hasClass('item-opened')) {
+
     // Values
     var elWidth = $(this).outerWidth() / 2;
     var elPosition = this.getBoundingClientRect();
@@ -45,7 +46,6 @@ $('.grid-item').click(function(event) {
     $('.grid').css('overflow', 'hidden');
   }
 });
-
 
 // Close item Modal
 $(document).on('click', function(e) {
