@@ -54,11 +54,6 @@ function setGoogleMap() {
   			div.innerHTML = self.args.price + '<span class="currency">DKK</span>';
   		}
 
-  		google.maps.event.addDomListener(div, 'click', function (event) {
-        console.asert('click function triggered here --> ')
-  			google.maps.event.trigger(self, 'click');
-  		});
-
   		var panes = self.getPanes();
   		panes.overlayImage.appendChild(div);
   	}
@@ -71,10 +66,6 @@ function setGoogleMap() {
   	}
   };
 
-}
-
-function googleInit() {
-  google.maps.event.addDomListener(window, 'load', initialize);
 }
 
 function initMap2() {
@@ -284,11 +275,7 @@ function initMap2() {
     };
 
 	let map = new google.maps.Map(mapCanvas, mapOptions);
-
-  // google.maps.event.addDomListener(map, 'click', function() {
-  //   window.alert('Map was clicked!');
-  // });
-
+  //google.maps.event.addDomListener(window, 'load', initialize);
 	google.maps.event.addDomListener(map, 'idle', function () {
 		mapCenter = map.getCenter();
 	});
@@ -296,7 +283,11 @@ function initMap2() {
 		map.panTo(mapCenter);
 	});
 
-  googleInit();
+  google.maps.event.addDomListener(mapCanvas, 'click', function (event) {
+    window.alert('Map was clicked!');
+    google.maps.event.trigger(self, 'click');
+  });
+
 }
 
 

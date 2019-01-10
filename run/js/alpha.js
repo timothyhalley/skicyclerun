@@ -35,7 +35,15 @@ $('.grid-item').click(function(event) {
       // position: 'fixed'
     }).addClass('item-opened');
 
+    // $('#map').css({
+    //   top: elPosition.top,
+    //   left: elPosition.left,
+    //   zIndex: '99999'
+    // })
+
     $('.grid-alpha').fadeIn();
+    // document.getElementById('map').classList.toggle('map-alpha');
+
 
     // Scroll to the top
     $('html, body').animate({
@@ -52,6 +60,7 @@ $(document).on('click', function(e) {
   if ($('.item-opened').length > 0) {
     if (!$(e.target).closest('.grid-item').length && !$(e.target).hasClass('item-opened')) {
       $('.grid-alpha').fadeOut(650);
+      // document.getElementById('map').classList.toggle('map-alpha');
 
       $('.item-opened').css({
         top: $('.item-opened').data('coord-top'),
