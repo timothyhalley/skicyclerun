@@ -35,24 +35,25 @@ $('.grid-item').click(function(event) {
       // position: 'fixed'
     }).addClass('item-opened');
 
-    // $('#map').css({
-    //   top: elPosition.top,
-    //   left: elPosition.left,
-    //   zIndex: '99999'
-    // })
-
     $('.grid-alpha').fadeIn();
-    // document.getElementById('map').classList.toggle('map-alpha');
-
 
     // Scroll to the top
     $('html, body').animate({
       scrollTop: $('.grid').offset().top
     }, 650);
     $('.grid').css('overflow', 'visible');
+    alert('finished with item opened...')
+
   } else {
+
     $('.grid').css('overflow', 'hidden');
+    $('html, body').animate({
+      scrollTop: $('#map').offset().top
+    }, 6000);
+    selectMap();
+
   }
+
 });
 
 // Close item Modal
@@ -60,7 +61,6 @@ $(document).on('click', function(e) {
   if ($('.item-opened').length > 0) {
     if (!$(e.target).closest('.grid-item').length && !$(e.target).hasClass('item-opened')) {
       $('.grid-alpha').fadeOut(650);
-      // document.getElementById('map').classList.toggle('map-alpha');
 
       $('.item-opened').css({
         top: $('.item-opened').data('coord-top'),
@@ -79,3 +79,16 @@ $(document).on('click', function(e) {
     }
   }
 });
+
+function selectMap() {
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: {
+      lat: 47.544539,
+      lng: -121.986808
+    },
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+
+}

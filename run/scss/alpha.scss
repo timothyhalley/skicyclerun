@@ -52,16 +52,16 @@ body {
   text-align: center;
 }
 
-.grid-alpha:hover{
+.grid-alpha:hover {
   cursor: zoom-out;
 }
 
-.grid-item.item-opened{
+.grid-item.item-opened {
   width: 80%;
   height: 80vw;
   border: 4px solid #000;
   -webkit-filter: grayscale(0%) blur(0);
-  }
+}
 
 .grid-item--width2 {
   width:  50%;
@@ -100,15 +100,5 @@ body {
   height: 400px;
   border: 8px solid #000;
   background-color: grey;
-}
-
-.map-alpha {
-  display: none;
-  position: absolute;
-  background-color: #F4F3F4;
-  width: 100%;
-  height: 40%;
-  top: 0;
-  left: 0;
-  text-align: center;
+  position: relative;
 }
