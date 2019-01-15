@@ -42,14 +42,16 @@ $('.grid-item').click(function(event) {
       scrollTop: $('.grid').offset().top
     }, 650);
     $('.grid').css('overflow', 'visible');
-    alert('finished with item opened...')
+
 
   } else {
 
     $('.grid').css('overflow', 'hidden');
+
     $('html, body').animate({
       scrollTop: $('#map').offset().top
-    }, 6000);
+    }, 1200);
+
     selectMap();
 
   }
