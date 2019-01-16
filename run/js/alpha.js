@@ -31,6 +31,7 @@ $('.grid-item').click(function(event) {
       top: '120px',
       left: '10%',
       zIndex: '99999',
+      //background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
       // marginLeft:	'-20%'
       // position: 'fixed'
     }).addClass('item-opened');
@@ -41,11 +42,26 @@ $('.grid-item').click(function(event) {
     $('html, body').animate({
       scrollTop: $('.grid').offset().top
     }, 650);
+
     $('.grid').css('overflow', 'visible');
+
+
+    $('.map-alpha').delay(600).css({
+      top: '120px',
+      left: '0%',
+      height: '50%',
+      zIndex: '99998',
+      // marginLeft:	'-20%'
+      // position: 'fixed'
+    }).addClass('item-opened');
+
+    $('.map-alpha').css({"background-image": "linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)"});
+    $('.map-alpha').fadeIn();
 
 
   } else {
 
+    // single image clicked upon
     $('.grid').css('overflow', 'hidden');
 
     $('html, body').animate({
@@ -78,11 +94,19 @@ $(document).on('click', function(e) {
         $('.grid-item').css('z-index', '').removeClass('item-opened');
       }, 350);
       $('.grid').css('overflow', 'hidden');
+
+      $('.map-alpha').fadeOut(650);
+      setTimeout(function() {
+        $('.map-alpha').css('z-index', '').removeClass('item-opened');
+      }, 350);
+
     }
   }
 });
 
 function selectMap() {
+
+
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
