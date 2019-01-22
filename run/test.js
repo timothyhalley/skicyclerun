@@ -25,6 +25,10 @@ app.use(express.static('../'))
 app.use(express.static('../css'))
 app.use(express.static('../js'))
 
+app.get('/prod', (req, res, next) => {
+    res.sendFile(path.join(__dirname + '/../index.html'));
+})
+
 app.get('/alpha', (req, res, next) => {
     res.sendFile(path.join(__dirname + '/../alpha.html'));
 })

@@ -15,6 +15,9 @@ $('.grid-item').click(function(event) {
   // Check if not already open
   if (!$(this).hasClass('item-opened')) {
 
+    // map Value
+    console.log('MAP -->', $(this).css('background-image'))
+
     // Values
     var elWidth = $(this).outerWidth() / 2;
     var elPosition = this.getBoundingClientRect();
@@ -44,12 +47,11 @@ $('.grid-item').click(function(event) {
     }, 650);
 
     $('.grid').css('overflow', 'visible');
-
-
+    var xtall = $('.item-open').height;
     $('.map-alpha').delay(600).css({
-      top: '120px',
+      top: '0px',
       left: '0%',
-      height: '50%',
+      height: '100vw',
       zIndex: '99998',
       // marginLeft:	'-20%'
       // position: 'fixed'
@@ -57,7 +59,6 @@ $('.grid-item').click(function(event) {
 
     $('.map-alpha').css({"background-image": "linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)"});
     $('.map-alpha').fadeIn();
-
 
   } else {
 
@@ -68,7 +69,9 @@ $('.grid-item').click(function(event) {
       scrollTop: $('#map').offset().top
     }, 1200);
 
-    selectMap();
+    //console.log('MAP 2-->', $(this).css('background-image'))
+
+    selectMap($(this).css('background-image'));
 
   }
 
@@ -104,9 +107,14 @@ $(document).on('click', function(e) {
   }
 });
 
-function selectMap() {
+function selectMap(urlMap) {
 
+  var image = urlMap.substring(urlMap.lastIndexOf('/')+1);
 
+  var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
+  var album = newURL.substring(newURL.lastIndexOf('/')+1);
+
+  console.log('MAP 2-->', album, ' -- ', image);
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
