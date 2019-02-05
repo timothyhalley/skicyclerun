@@ -89,6 +89,6 @@ body {
     $rndPic: random(1000);
 
     // must be a valid s3:album - image is random place holder
-    background-image: url('https://img.skicyclerun.com/skiCycleRun/#{$rndVal}.jpg');
+    background-image: url('https://img.skicyclerun.com/pub/skiCycleRun/#{$rndVal}.jpg');
   }
 }
