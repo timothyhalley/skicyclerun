@@ -114,7 +114,8 @@ function selectMap(urlMap) {
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
   var album = newURL.substring(newURL.lastIndexOf('/')+1);
 
-  console.log('MAP 2-->', album, ' -- ', image);
+  console.log('MAP 2-->', album, ' -- ', image, ' --> mapDATA: ', mapData);
+
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
@@ -125,4 +126,9 @@ function selectMap(urlMap) {
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
+}
+
+const mapData = () => {
+  return fetch('https://api.skicyclerun.com/deadpool/getMapData/halleyFamily/scan8', {cache: 'no-cache'})
+    .then(response => response.json()) // parse JSON
 }
