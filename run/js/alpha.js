@@ -107,25 +107,48 @@ $(document).on('click', function(e) {
   }
 });
 
-function selectMap(urlMap) {
+async function selectMap(urlMap) {
 
   var image = urlMap.substring(urlMap.lastIndexOf('/')+1);
 
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
   var album = newURL.substring(newURL.lastIndexOf('/')+1);
 
-  console.log('MAP 2-->', album, ' -- ', image, ' --> mapDATA: ', mapData);
+  console.log('MAP 2-->', album, ' -- ', image);
+
+  const mapData = await getGPSInfo(album, image);
+  console.log('this is mapData: ', mapData);
+  console.log('this is GPS info: ', mapData.Item.GPSPosition);
+
+  const gLat = mapData.Item.GPSLatitude;
+  const gLng = mapData.Item.GPSLongitude;
+
+  console.log('new map coords: ', gLat, gLng);
 
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
     center: {
-      lat: 47.544539,
-      lng: -121.986808
+      lat: gLat,
+      lng: gLng
     },
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
+}
+
+async function getGPSInfo(alb, img) {
+
+  try {
+    let url = 'https://api.skicyclerun.com/deadpool/getMapData/' + alb + '/' + img;
+    let response = await fetch(url, {cache: 'no-cache'})
+    let data = await response.json();
+
+    return data;
+
+  } catch (e) {
+    console.log('ERROR: ', e)
+  }
 }
 
 const mapData = () => {
