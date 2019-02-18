@@ -109,22 +109,19 @@ $(document).on('click', function(e) {
 
 async function selectMap(urlMap) {
 
-  var image = urlMap.substring(urlMap.lastIndexOf('/')+1);
+  var image = urlMap.substring(urlMap.lastIndexOf('/')+1).trim();
+  console.log('DEGUG: IMAGE in SelectMAP: [', image, ']');
 
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
-  var album = newURL.substring(newURL.lastIndexOf('/')+1);
+  var album = newURL.substring(newURL.lastIndexOf('/')+1).trim();
 
   console.log('MAP 2-->', album, ' -- ', image);
 
-  const mapData = await getGPSInfo(album, image);
-  console.log('this is mapData: ', mapData);
-  console.log('this is GPS info: ', mapData.Item.GPSPosition);
+  const pTagObj = await getPhotoTags(album, image);
+  console.log('GPS Info: ', pTagObj.GPSLatitude, ' ', pTagObj.GPSLongitude);
 
-  const gLat = mapData.Item.GPSLatitude;
-  const gLng = mapData.Item.GPSLongitude;
-
-  console.log('new map coords: ', gLat, gLng);
-
+  const gLat = parseFloat(pTagObj.GPSLatitude);
+  const gLng = parseFloat(pTagObj.GPSLongitude);
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 12,
@@ -137,10 +134,13 @@ async function selectMap(urlMap) {
 
 }
 
-async function getGPSInfo(alb, img) {
+async function getPhotoTags(alb, img) {
 
   try {
-    let url = 'https://api.skicyclerun.com/deadpool/getMapData/' + alb + '/' + img;
+    console.log('DEBUG - getPhotoTags: IMAGE = [', img, ']')
+    let url = 'https://api.skicyclerun.com/deadpool/getPhotoTags/pub/' + alb + '/' + img;
+
+    console.log('DEBUG - getPhotoTags: [', url, ']')
     let response = await fetch(url, {cache: 'no-cache'})
     let data = await response.json();
 
