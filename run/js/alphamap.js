@@ -29,11 +29,6 @@ function customMarker(latlng, map, args) {
 	this.setMap(map);
 }
 
-const getPhotoElements = () => {
-  return fetch('https://img.skicyclerun.com/private/db.json', {cache: 'no-cache'})
-    .then(response => response.json()) // parse JSON
-}
-
 function setGoogleMap() {
 
   customMarker.prototype = new google.maps.OverlayView();

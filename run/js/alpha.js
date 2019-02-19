@@ -15,9 +15,6 @@ $('.grid-item').click(function(event) {
   // Check if not already open
   if (!$(this).hasClass('item-opened')) {
 
-    // map Value
-    console.log('MAP -->', $(this).css('background-image'))
-
     // Values
     var elWidth = $(this).outerWidth() / 2;
     var elPosition = this.getBoundingClientRect();
@@ -38,16 +35,8 @@ $('.grid-item').click(function(event) {
       // marginLeft:	'-20%'
       // position: 'fixed'
     }).addClass('item-opened');
-
     $('.grid-alpha').fadeIn();
 
-    // Scroll to the top
-    $('html, body').animate({
-      scrollTop: $('.grid').offset().top
-    }, 650);
-
-    $('.grid').css('overflow', 'visible');
-    var xtall = $('.item-open').height;
     $('.map-alpha').delay(600).css({
       top: '0px',
       left: '0%',
@@ -56,22 +45,32 @@ $('.grid-item').click(function(event) {
       // marginLeft:	'-20%'
       // position: 'fixed'
     }).addClass('item-opened');
+    // move the map up against image
+    // Store position
+    $('#map').css({
+      top: '100vw',
+      height: '100%'
+    });
+    $('#map').fadeIn();
 
     $('.map-alpha').css({"background-image": "linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)"});
     $('.map-alpha').fadeIn();
+
+    // Scroll to the top
+    $('html, body').animate({
+      scrollTop: $('.grid').offset().top
+    }, 650);
+    $('.grid').css('overflow', 'visible');
+
+    selectMap($(this).css('background-image'));
+    $('html, body').animate({
+      scrollTop: $('#map').offset().top
+    }, 1200);
 
   } else {
 
     // single image clicked upon
     $('.grid').css('overflow', 'hidden');
-
-    $('html, body').animate({
-      scrollTop: $('#map').offset().top
-    }, 1200);
-
-    //console.log('MAP 2-->', $(this).css('background-image'))
-
-    selectMap($(this).css('background-image'));
 
   }
 
@@ -79,10 +78,12 @@ $('.grid-item').click(function(event) {
 
 // Close item Modal
 $(document).on('click', function(e) {
+
   if ($('.item-opened').length > 0) {
+
     if (!$(e.target).closest('.grid-item').length && !$(e.target).hasClass('item-opened')) {
       $('.grid-alpha').fadeOut(650);
-
+      $('.map-alpha').fadeOut(650);
       $('.item-opened').css({
         top: $('.item-opened').data('coord-top'),
         left: $('.item-opened').data('coord-left'),
@@ -98,33 +99,27 @@ $(document).on('click', function(e) {
       }, 350);
       $('.grid').css('overflow', 'hidden');
 
-      $('.map-alpha').fadeOut(650);
-      setTimeout(function() {
-        $('.map-alpha').css('z-index', '').removeClass('item-opened');
-      }, 350);
-
     }
+  } else {
+    // added else -
   }
 });
 
 async function selectMap(urlMap) {
 
-  var image = urlMap.substring(urlMap.lastIndexOf('/')+1).trim();
-  console.log('DEGUG: IMAGE in SelectMAP: [', image, ']');
+  // TODO: wierd glitch for substring - always added extra )" on the end
+  var image = urlMap.substring(urlMap.lastIndexOf('/')+1, urlMap.length-2);
 
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
   var album = newURL.substring(newURL.lastIndexOf('/')+1).trim();
 
-  console.log('MAP 2-->', album, ' -- ', image);
-
   const pTagObj = await getPhotoTags(album, image);
-  console.log('GPS Info: ', pTagObj.GPSLatitude, ' ', pTagObj.GPSLongitude);
 
   const gLat = parseFloat(pTagObj.GPSLatitude);
   const gLng = parseFloat(pTagObj.GPSLongitude);
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 16,
     center: {
       lat: gLat,
       lng: gLng
@@ -137,10 +132,8 @@ async function selectMap(urlMap) {
 async function getPhotoTags(alb, img) {
 
   try {
-    console.log('DEBUG - getPhotoTags: IMAGE = [', img, ']')
-    let url = 'https://api.skicyclerun.com/deadpool/getPhotoTags/pub/' + alb + '/' + img;
 
-    console.log('DEBUG - getPhotoTags: [', url, ']')
+    let url = 'https://api.skicyclerun.com/deadpool/getPhotoTags/pub/' + alb + '/' + img;
     let response = await fetch(url, {cache: 'no-cache'})
     let data = await response.json();
 
@@ -149,9 +142,4 @@ async function getPhotoTags(alb, img) {
   } catch (e) {
     console.log('ERROR: ', e)
   }
-}
-
-const mapData = () => {
-  return fetch('https://api.skicyclerun.com/deadpool/getMapData/halleyFamily/scan8', {cache: 'no-cache'})
-    .then(response => response.json()) // parse JSON
 }
