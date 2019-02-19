@@ -63,14 +63,16 @@ $('.grid-item').click(function(event) {
     $('.grid').css('overflow', 'visible');
 
     selectMap($(this).css('background-image'));
-    $('html, body').animate({
-      scrollTop: $('#map').offset().top
-    }, 1200);
+
 
   } else {
 
     // single image clicked upon
     $('.grid').css('overflow', 'hidden');
+
+    $('html, body').animate({
+      scrollTop: $('#map').offset().top
+    }, 1200);
 
   }
 
@@ -117,15 +119,19 @@ async function selectMap(urlMap) {
 
   const gLat = parseFloat(pTagObj.GPSLatitude);
   const gLng = parseFloat(pTagObj.GPSLongitude);
+  const newLatLng = {lat: gLat, lng: gLng};
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
-    center: {
-      lat: gLat,
-      lng: gLng
-    },
+    center: newLatLng,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
+
+  var marker = new google.maps.Marker({
+    position: newLatLng,
+    title:"Hello World!"
+  });
+  marker.setMap(map);
 
 }
 
