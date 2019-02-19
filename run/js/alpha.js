@@ -129,7 +129,7 @@ async function selectMap(urlMap) {
 
   var marker = new google.maps.Marker({
     position: newLatLng,
-    title:"Hello World!"
+    title:"SkiCycleRun"
   });
   marker.setMap(map);
 
