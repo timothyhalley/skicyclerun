@@ -28,7 +28,7 @@ gulp.task('sass', function(done) {
       suffix: '.min'
     }))
     //.pipe(changed('../css'))
-    .pipe(changed('./scss/*.scss'))
+    //.pipe(changed('./scss/*.scss'))
     .pipe(gulp.dest('../css'));
 
   done();
@@ -57,7 +57,7 @@ gulp.task('minify-js', function(done) {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(changed('../js'))
+    //.pipe(changed('../js'))
     .pipe(gulp.dest('../js'))
 
   done();
