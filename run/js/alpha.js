@@ -2,7 +2,8 @@
   * SkiCycleRun  Alpha JS
   google maps: https://codepen.io/thomasclausen/pen/avagdy
   Medium starter: https://medium.com/@limichelle21/integrating-google-maps-api-for-multiple-locations-a4329517977a
-
+  scroll--> https://www.npmjs.com/package/infinite-scroll
+            https://infinite-scroll.com
 */
 $('.grid').masonry({
   itemSelector: '.grid-item',
