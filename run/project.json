@@ -1,8 +1,0 @@
-{
-  "name": "skicyclerun",
-  "description": "skicyclerun",
-  "memory": 128,
-  "timeout": 5,
-  "role": "arn:aws:iam::635874589224:role/skicyclerun_lambda_function",
-  "environment": {}
-}

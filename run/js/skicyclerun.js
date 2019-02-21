@@ -2,6 +2,7 @@
   * SkiCycleRun JS
 
 
+
   Copy everything from Alpha.JS to this
 */
 $('.grid').masonry({
@@ -74,6 +75,11 @@ $('.grid-item').click(function(event) {
       scrollTop: $('#map').offset().top
     }, 1200);
 
+    //  change backgroud image? // Keep  to 300 rnd #
+    const rndNo = getRandomInt(10000, 10300);
+    const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
+    $(this).css('background-image', 'url("' + newURL + '")');
+
   }
 
 });
@@ -102,10 +108,15 @@ $(document).on('click', function(e) {
       $('.grid').css('overflow', 'hidden');
 
     }
-  } else {
-    // added else -
   }
+
 });
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
+}
 
 async function selectMap(urlMap) {
 

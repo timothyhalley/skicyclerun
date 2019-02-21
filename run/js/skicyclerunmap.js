@@ -43,9 +43,6 @@ function setGoogleMap() {
   		if (typeof(self.args.marker_id) !== 'undefined') {
   			div.dataset.marker_id = self.args.marker_id;
   		}
-  		if (typeof(self.args.price) !== 'undefined') {
-  			div.innerHTML = self.args.price + '<span class="currency">DKK</span>';
-  		}
 
   		var panes = self.getPanes();
   		panes.overlayImage.appendChild(div);
