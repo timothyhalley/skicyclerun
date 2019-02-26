@@ -14,8 +14,10 @@ $('.grid').masonry({
 // Modal with transition
 $('.grid-item').click(function(event) {
   // Check if not already open
-  if (!$(this).hasClass('item-opened')) {
+  console.log('DEBUG: grid-item --> clicked')
 
+  if (!$(this).hasClass('item-opened')) {
+    console.log('DEBUG: !NOT has class --> item-opened')
     // Values
     var elWidth = $(this).outerWidth() / 2;
     var elPosition = this.getBoundingClientRect();
@@ -68,17 +70,13 @@ $('.grid-item').click(function(event) {
 
   } else {
 
+    console.log('DEBUG: YES has class --> item-opened')
     // single image clicked upon
     $('.grid').css('overflow', 'hidden');
 
     $('html, body').animate({
       scrollTop: $('#map').offset().top
     }, 1200);
-
-    //  change backgroud image? // Keep alpha to 300 rnd #
-    const rndNo = getRandomInt(10000, 10300);
-    const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
-    $(this).css('background-image', 'url("' + newURL + '")');
 
   }
 
@@ -109,6 +107,29 @@ $(document).on('click', function(e) {
 
     }
   }
+
+  var msnry = $('.grid').data('masonry')
+  var elems = msnry.getItemElements()
+  //console.log(elems.backgroud-image);
+  //
+  // for (let elem in elems) {
+  //   console.log('element: ', elem)
+  // }
+
+  msnry.reloadItems();
+
+});
+
+$(document).on('dblclick', function(e) {
+
+  console.log('DOUBLE CLICK!');
+  //
+  // //  change backgroud image? // Keep alpha to 300 rnd #
+  // const rndNo = getRandomInt(10000, 10300);
+  // const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
+  // $(this).css('background-image', 'url("' + newURL + '")');
+  // console.log('DEBUG: new Background --> ', newURL)
+
 
 });
 

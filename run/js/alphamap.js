@@ -89,7 +89,6 @@ function initMap2() {
 	});
 
   google.maps.event.addDomListener(mapCanvas, 'click', function (event) {
-    // window.alert('Map was clicked!');
     google.maps.event.trigger(self, 'click');
   });
 
