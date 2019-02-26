@@ -113,7 +113,7 @@ $(document).on('click', function(e) {
   //console.log(elems.backgroud-image);
   //
   // for (let elem in elems) {
-  //   console.log('element: ', elem)
+  //   console.log('element: ', elem.)
   // }
 
   msnry.reloadItems();
