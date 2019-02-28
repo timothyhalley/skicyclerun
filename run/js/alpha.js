@@ -5,30 +5,40 @@
   scroll--> https://www.npmjs.com/package/infinite-scroll
             https://infinite-scroll.com
 */
-// document.addEventListener("touchstart", function(e) {
-//   console.log(e.defaultPrevented);  // will be false
-//   e.preventDefault();   // does nothing since the listener is passive
-//   console.log(e.defaultPrevented);  // still false
-// }, Modernizr.passiveeventlisteners ? {passive: true} : false);
-
-Modernizr.on('touchstart', function(result) {
-  if (result) {
-    console.log('touchstart test passed!');
-  } else {
-    console.log('touchstart test failed!');
-  }
-});
 
 if (Modernizr.eventlistener) {
-  console.log('eventlistener test passed!');
+  // console.log('eventlistener test passed!');
+  addEventListener("touchstart", function(e) {
+    // console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    // console.log(e.defaultPrevented);  // still false
+  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+
+  const alpha = document.querySelector(".map-alpha");
+  alpha.addEventListener('dblclick', function (e) {
+
+    // change backgroud image? // Keep alpha to 300 rnd #
+    const rndNo = getRandomInt(10000, 10300);
+    const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
+    $(this).css('background-image', 'url("' + newURL + '")');
+    console.log('DEBUG: new Background --> ', newURL)
+
+    // $('.grid-alpha').fadeOut(650);
+
+  });
+
 } else {
   console.log('eventlistener test failed!');
 }
 
 if (Modernizr.geolocation) {
-  console.log('geolocation test passed!');
+  // console.log('geolocation test passed!');
+
+  console.log('EVENT: --> getting location');
+  getLocation();
+
 } else {
-    console.log('geolocation test failed!');
+  console.log('geolocation test failed!');
 }
 
 $('.grid').masonry({
@@ -149,26 +159,11 @@ $(document).on('click', function(e) {
 
 });
 
-// const alpha = document.querySelector(".map-alpha");
-// alpha.addEventListener('dblclick', function (e) {
+// $(document).on('click', function(e) {
 //
-//   // change backgroud image? // Keep alpha to 300 rnd #
-//   const rndNo = getRandomInt(10000, 10300);
-//   const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
-//   $(this).css('background-image', 'url("' + newURL + '")');
-//   console.log('DEBUG: new Background --> ', newURL)
 //
-//   // $('.grid-alpha').fadeOut(650);
 //
 // });
-
-$(document).on('click', function(e) {
-
-  console.log('EVENT: --> getting location');
-
-  // getLocation();
-
-});
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -193,14 +188,20 @@ async function selectMap(urlMap) {
     lng: gLng
   };
 
+  await setMap(newLatLng);
+
+}
+
+async function setMap(latLng) {
+
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
-    center: newLatLng,
+    center: latLng,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
   var marker = new google.maps.Marker({
-    position: newLatLng,
+    position: latLng,
     title: "SkiCycleRun"
   });
   marker.setMap(map);
@@ -224,10 +225,22 @@ async function getPhotoTags(alb, img) {
   }
 }
 
-function showLocation(position) {
+// Geolocation -------------------------------------------------
+async function mapLocation(position) {
+
   var latitude = position.coords.latitude;
   var longitude = position.coords.longitude;
-  alert("Latitude : " + latitude + " Longitude: " + longitude);
+  // alert("Latitude : " + latitude + " Longitude: " + longitude);
+
+  const gLat = parseFloat(latitude);
+  const gLng = parseFloat(longitude);
+  const mapLatLng = {
+    lat: gLat,
+    lng: gLng
+  };
+
+  await setMap(mapLatLng);
+
 }
 
 function errorHandler(err) {
@@ -242,11 +255,13 @@ function getLocation() {
 
   if (navigator.geolocation) {
 
-    // timeout at 60000 milliseconds (60 seconds)
-    var options = {
-      timeout: 60000
+    let options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
     };
-    navigator.geolocation.getCurrentPosition(showLocation, errorHandler, options);
+    navigator.geolocation.getCurrentPosition(mapLocation, errorHandler, options);
+
   } else {
     alert("Sorry, browser does not support geolocation!");
   }

@@ -5,6 +5,42 @@
 
   Copy everything from Alpha.JS to this
 */
+
+if (Modernizr.eventlistener) {
+  // console.log('eventlistener test passed!');
+  addEventListener("touchstart", function(e) {
+    // console.log(e.defaultPrevented);  // will be false
+    e.preventDefault();   // does nothing since the listener is passive
+    // console.log(e.defaultPrevented);  // still false
+  }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+
+  const alpha = document.querySelector(".map-alpha");
+  alpha.addEventListener('dblclick', function (e) {
+
+    // change backgroud image? // Keep alpha to 300 rnd #
+    const rndNo = getRandomInt(10000, 10300);
+    const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
+    $(this).css('background-image', 'url("' + newURL + '")');
+    console.log('DEBUG: new Background --> ', newURL)
+
+    // $('.grid-alpha').fadeOut(650);
+
+  });
+
+} else {
+  console.log('eventlistener test failed!');
+}
+
+if (Modernizr.geolocation) {
+  // console.log('geolocation test passed!');
+
+  console.log('EVENT: --> getting location');
+  getLocation();
+
+} else {
+  console.log('geolocation test failed!');
+}
+
 $('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: '.grid-sizer',
@@ -14,7 +50,10 @@ $('.grid').masonry({
 // Modal with transition
 $('.grid-item').click(function(event) {
   // Check if not already open
+  console.log('DEBUG: grid-item --> clicked')
+
   if (!$(this).hasClass('item-opened')) {
+    console.log('DEBUG: !NOT has class --> item-opened')
 
     // Values
     var elWidth = $(this).outerWidth() / 2;
@@ -23,6 +62,9 @@ $('.grid-item').click(function(event) {
     // Store position
     $(this).attr('data-coord-left', $(this).css('left'));
     $(this).attr('data-coord-top', $(this).css('top'));
+
+    // Update MAP
+    selectMap($(this).css('background-image'));
 
     // Transition effect
     $(this).css({
@@ -54,7 +96,9 @@ $('.grid-item').click(function(event) {
     });
     $('#map').fadeIn();
 
-    $('.map-alpha').css({"background-image": "linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)"});
+    $('.map-alpha').css({
+      "background-image": "linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)"
+    });
     $('.map-alpha').fadeIn();
 
     // Scroll to the top
@@ -63,22 +107,15 @@ $('.grid-item').click(function(event) {
     }, 650);
     $('.grid').css('overflow', 'visible');
 
-    selectMap($(this).css('background-image'));
-
-
   } else {
 
+    console.log('DEBUG: YES has class --> item-opened')
     // single image clicked upon
     $('.grid').css('overflow', 'hidden');
 
     $('html, body').animate({
       scrollTop: $('#map').offset().top
     }, 1200);
-
-    //  change backgroud image? // Keep  to 300 rnd #
-    const rndNo = getRandomInt(10000, 10300);
-    const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
-    $(this).css('background-image', 'url("' + newURL + '")');
 
   }
 
@@ -110,7 +147,23 @@ $(document).on('click', function(e) {
     }
   }
 
+  var msnry = $('.grid').data('masonry')
+  var elems = msnry.getItemElements()
+  //console.log(elems.backgroud-image);
+  //
+  // for (let elem in elems) {
+  //   console.log('element: ', elem.)
+  // }
+
+  msnry.reloadItems();
+
 });
+
+// $(document).on('click', function(e) {
+//
+//
+//
+// });
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -121,26 +174,35 @@ function getRandomInt(min, max) {
 async function selectMap(urlMap) {
 
   // TODO: wierd glitch for substring - always added extra )" on the end
-  var image = urlMap.substring(urlMap.lastIndexOf('/')+1, urlMap.length-2);
+  var image = urlMap.substring(urlMap.lastIndexOf('/') + 1, urlMap.length - 2);
 
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
-  var album = newURL.substring(newURL.lastIndexOf('/')+1).trim();
+  var album = newURL.substring(newURL.lastIndexOf('/') + 1).trim();
 
   const pTagObj = await getPhotoTags(album, image);
 
   const gLat = parseFloat(pTagObj.GPSLatitude);
   const gLng = parseFloat(pTagObj.GPSLongitude);
-  const newLatLng = {lat: gLat, lng: gLng};
+  const newLatLng = {
+    lat: gLat,
+    lng: gLng
+  };
+
+  await setMap(newLatLng);
+
+}
+
+async function setMap(latLng) {
 
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 16,
-    center: newLatLng,
+    center: latLng,
     mapTypeId: google.maps.MapTypeId.TERRAIN
   });
 
   var marker = new google.maps.Marker({
-    position: newLatLng,
-    title:"SkiCycleRun"
+    position: latLng,
+    title: "SkiCycleRun"
   });
   marker.setMap(map);
 
@@ -151,12 +213,56 @@ async function getPhotoTags(alb, img) {
   try {
 
     let url = 'https://api.skicyclerun.com/deadpool/getPhotoTags/pub/' + alb + '/' + img;
-    let response = await fetch(url, {cache: 'no-cache'})
+    let response = await fetch(url, {
+      cache: 'no-cache'
+    })
     let data = await response.json();
 
     return data;
 
   } catch (e) {
     console.log('ERROR: ', e)
+  }
+}
+
+// Geolocation -------------------------------------------------
+async function mapLocation(position) {
+
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  // alert("Latitude : " + latitude + " Longitude: " + longitude);
+
+  const gLat = parseFloat(latitude);
+  const gLng = parseFloat(longitude);
+  const mapLatLng = {
+    lat: gLat,
+    lng: gLng
+  };
+
+  await setMap(mapLatLng);
+
+}
+
+function errorHandler(err) {
+  if (err.code == 1) {
+    alert("Error: Access is denied!");
+  } else if (err.code == 2) {
+    alert("Error: Position is unavailable!");
+  }
+}
+
+function getLocation() {
+
+  if (navigator.geolocation) {
+
+    let options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+    navigator.geolocation.getCurrentPosition(mapLocation, errorHandler, options);
+
+  } else {
+    alert("Sorry, browser does not support geolocation!");
   }
 }
