@@ -44,11 +44,12 @@
     "gulp-concat": "^2.6.1",
     "gulp-header": "^1.8.9",
     "gulp-jshint": "^2.0.4",
+    "gulp-modernizr": "^3.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify-es": "^1.0.4",
     "gulp-zip": "^4.0.0",
-    "jshint": "^2.10.0"
+    "jshint": "^2.10.1"
   },
   "main": "gulpfile.js",
   "directories": {

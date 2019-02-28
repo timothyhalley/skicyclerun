@@ -2,23 +2,40 @@
   * SkiCycleRun  AlphaMAP JS
   google maps: https://codepen.io/thomasclausen/pen/avagdy
   Medium starter: https://medium.com/@limichelle21/integrating-google-maps-api-for-multiple-locations-a4329517977a
+  Tutorial G: https://developers.google.com/maps/documentation/javascript/tutorial
 
 */
-function initMap() {
-  var center = {lat: 47.544539, lng: -121.986808};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
-    center: center
+
+function initMap2() {
+
+  setGoogleMap();
+
+	var mapCanvas = document.getElementById('map');
+	var mapCenter = new google.maps.LatLng(47.544539, -121.986808);
+	var mapOptions = {
+		center: mapCenter,
+		zoom: 15,
+		mapTypeId: google.maps.MapTypeId.TERRAIN,
+
+		scrollwheel: false,
+		disableDefaultUI: true,
+		zoomControl: true
+  };
+
+	let map = new google.maps.Map(mapCanvas, mapOptions);
+  //google.maps.event.addDomListener(window, 'load', initialize);
+	google.maps.event.addDomListener(map, 'idle', function () {
+		mapCenter = map.getCenter();
+	});
+	google.maps.event.addDomListener(window, 'resize', function () {
+		map.panTo(mapCenter);
+	});
+
+  google.maps.event.addDomListener(mapCanvas, 'click', function (event) {
+    google.maps.event.trigger(self, 'click');
   });
-  var marker = new google.maps.Marker({
-    position: center,
-    map: map
-  });
+
 }
-
-//console.clear();
-
-var map = '';
 
 function customMarker(latlng, map, args) {
 	// Initialize all properties.
@@ -63,36 +80,6 @@ function setGoogleMap() {
 
 }
 
-function initMap2() {
-
-  setGoogleMap();
-
-	var mapCanvas = document.getElementById('map');
-	var mapCenter = new google.maps.LatLng(47.544539, -121.986808);
-	var mapOptions = {
-		center: mapCenter,
-		zoom: 15,
-		mapTypeId: google.maps.MapTypeId.TERRAIN,
-
-		scrollwheel: false,
-		disableDefaultUI: true,
-		zoomControl: true
-  };
-
-	let map = new google.maps.Map(mapCanvas, mapOptions);
-  //google.maps.event.addDomListener(window, 'load', initialize);
-	google.maps.event.addDomListener(map, 'idle', function () {
-		mapCenter = map.getCenter();
-	});
-	google.maps.event.addDomListener(window, 'resize', function () {
-		map.panTo(mapCenter);
-	});
-
-  google.maps.event.addDomListener(mapCanvas, 'click', function (event) {
-    google.maps.event.trigger(self, 'click');
-  });
-
-}
 
 
 // Custom markers

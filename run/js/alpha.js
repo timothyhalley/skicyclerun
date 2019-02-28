@@ -5,6 +5,32 @@
   scroll--> https://www.npmjs.com/package/infinite-scroll
             https://infinite-scroll.com
 */
+// document.addEventListener("touchstart", function(e) {
+//   console.log(e.defaultPrevented);  // will be false
+//   e.preventDefault();   // does nothing since the listener is passive
+//   console.log(e.defaultPrevented);  // still false
+// }, Modernizr.passiveeventlisteners ? {passive: true} : false);
+
+Modernizr.on('touchstart', function(result) {
+  if (result) {
+    console.log('touchstart test passed!');
+  } else {
+    console.log('touchstart test failed!');
+  }
+});
+
+if (Modernizr.eventlistener) {
+  console.log('eventlistener test passed!');
+} else {
+  console.log('eventlistener test failed!');
+}
+
+if (Modernizr.geolocation) {
+  console.log('geolocation test passed!');
+} else {
+    console.log('geolocation test failed!');
+}
+
 $('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: '.grid-sizer',
@@ -123,18 +149,18 @@ $(document).on('click', function(e) {
 
 });
 
-const alpha = document.querySelector(".map-alpha");
-alpha.addEventListener('dblclick', function (e) {
-
-  // change backgroud image? // Keep alpha to 300 rnd #
-  const rndNo = getRandomInt(10000, 10300);
-  const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
-  $(this).css('background-image', 'url("' + newURL + '")');
-  console.log('DEBUG: new Background --> ', newURL)
-
-  $('.grid-alpha').fadeOut(650);
-
-});
+// const alpha = document.querySelector(".map-alpha");
+// alpha.addEventListener('dblclick', function (e) {
+//
+//   // change backgroud image? // Keep alpha to 300 rnd #
+//   const rndNo = getRandomInt(10000, 10300);
+//   const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
+//   $(this).css('background-image', 'url("' + newURL + '")');
+//   console.log('DEBUG: new Background --> ', newURL)
+//
+//   // $('.grid-alpha').fadeOut(650);
+//
+// });
 
 $(document).on('click', function(e) {
 

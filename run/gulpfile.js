@@ -6,6 +6,7 @@ var header = require('gulp-header');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 let uglify = require('gulp-uglify-es').default;
+let modernizr = require('gulp-modernizr');
 var pkg = require('./package.json');
 
 // Set the banner content
@@ -34,22 +35,18 @@ gulp.task('sass', function(done) {
   done();
 
 });
-// gulp.task('sass', function() {
-//   return gulp.src(['scss/skicyclerun.scss', './scss/alpha.scss'])
-//     .pipe(sass().on('error', sass.logError))
-//     .pipe(header(banner, {
-//       pkg: pkg
-//     }))
-//     .pipe(rename({
-//       suffix: '.min'
-//     }))
-//     .pipe(changed('../css'))
-//     .pipe(gulp.dest('../css'));
-// });
+
+// moderizr
+gulp.task('modernizr', function() {
+  return gulp.src('./js/*.js')
+    .pipe(modernizr())
+    .pipe(gulp.dest('./js'))
+});
 
 // Minify custom JS
 gulp.task('minify-js', function(done) {
-  return gulp.src(['js/skicyclerun.js', 'js/alpha.js', 'js/alphamap.js', 'js/skicyclerunmap.js'])
+  //return gulp.src(['js/skicyclerun.js', 'js/alpha.js', 'js/alphamap.js', 'js/skicyclerunmap.js'])
+  return gulp.src('./js/*.js')
     .pipe(uglify())
     .pipe(header(banner, {
       pkg: pkg
@@ -110,13 +107,12 @@ gulp.task('copy', function(done) {
     .pipe(changed('../vendor/masonry'))
     .pipe(gulp.dest('../vendor/masonry'))
 
-
   done();
 
 })
 
 // Default Task
-gulp.task('default', gulp.series(['sass', 'minify-js', 'copy'], function(done) {
+gulp.task('default', gulp.series(['sass', 'modernizr', 'minify-js', 'copy'], function(done) {
   // do more stuff
   done();
 }));
