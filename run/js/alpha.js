@@ -21,7 +21,7 @@ if (Modernizr.eventlistener) {
     const rndNo = getRandomInt(10000, 10300);
     const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
     $(this).css('background-image', 'url("' + newURL + '")');
-    console.log('DEBUG: new Background --> ', newURL)
+    console.log('DLBCLICK: new Background --> ', newURL)
 
     // $('.grid-alpha').fadeOut(650);
 
@@ -41,14 +41,26 @@ if (Modernizr.geolocation) {
   console.log('geolocation test failed!');
 }
 
-$('.grid').masonry({
+var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',
   columnWidth: '.grid-sizer',
   percentPosition: true
 });
 
+// remove grid-item on dblclick
+$grid.on( 'click', '.grid-item', function() {
+  // remove item
+  $grid.masonry( 'remove', this )
+    // trigger layout
+    .masonry();
+});
+$grid.on( 'removeComplete', function( event, removedItems ) {
+  console.log('Masonry remove complete with ' + removedItems.length + ' items' );
+  console.log('Item removed is... ', removedItems)
+});
+
 // Modal with transition
-$('.grid-item').click(function(event) {
+$('.grid-item').dblclick(function(event) {
   // Check if not already open
   console.log('DEBUG: grid-item --> clicked')
 
