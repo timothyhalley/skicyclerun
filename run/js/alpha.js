@@ -31,15 +31,15 @@ if (Modernizr.eventlistener) {
   console.log('eventlistener test failed!');
 }
 
-if (Modernizr.geolocation) {
-  // console.log('geolocation test passed!');
-
-  console.log('EVENT: --> getting location');
-  getLocation();
-
-} else {
-  console.log('geolocation test failed!');
-}
+// if (Modernizr.geolocation) {
+//   // console.log('geolocation test passed!');
+//
+//   console.log('EVENT: --> getting location');
+//   getLocation();
+//
+// } else {
+//   console.log('geolocation test failed!');
+// }
 
 var $grid = $('.grid').masonry({
   itemSelector: '.grid-item',

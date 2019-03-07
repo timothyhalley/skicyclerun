@@ -8,6 +8,7 @@
 
 function initMap2() {
 
+  // console.log('MAP 2 init called...')
   setGoogleMap();
 
 	var mapCanvas = document.getElementById('map');

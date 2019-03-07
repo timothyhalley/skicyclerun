@@ -21,7 +21,7 @@ if (Modernizr.eventlistener) {
     const rndNo = getRandomInt(10000, 10300);
     const newURL = 'https://img.skicyclerun.com/pub/skiCycleRun/' + rndNo + '.jpg';
     $(this).css('background-image', 'url("' + newURL + '")');
-    console.log('DEBUG: new Background --> ', newURL)
+    // console.log('DEBUG: new Background --> ', newURL)
 
     // $('.grid-alpha').fadeOut(650);
 
@@ -31,15 +31,15 @@ if (Modernizr.eventlistener) {
   console.log('eventlistener test failed!');
 }
 
-if (Modernizr.geolocation) {
-  // console.log('geolocation test passed!');
-
-  console.log('EVENT: --> getting location');
-  getLocation();
-
-} else {
-  console.log('geolocation test failed!');
-}
+// if (Modernizr.geolocation) {
+//   console.log('geolocation test passed!');
+//
+//   console.log('EVENT: --> getting location');
+//   getLocation();
+//
+// } else {
+//   console.log('geolocation test failed!');
+// }
 
 $('.grid').masonry({
   itemSelector: '.grid-item',
@@ -50,10 +50,10 @@ $('.grid').masonry({
 // Modal with transition
 $('.grid-item').click(function(event) {
   // Check if not already open
-  console.log('DEBUG: grid-item --> clicked')
+  // console.log('DEBUG: grid-item --> clicked')
 
   if (!$(this).hasClass('item-opened')) {
-    console.log('DEBUG: !NOT has class --> item-opened')
+    // console.log('DEBUG: !NOT has class --> item-opened')
 
     // Values
     var elWidth = $(this).outerWidth() / 2;
@@ -109,7 +109,7 @@ $('.grid-item').click(function(event) {
 
   } else {
 
-    console.log('DEBUG: YES has class --> item-opened')
+    // console.log('DEBUG: YES has class --> item-opened')
     // single image clicked upon
     $('.grid').css('overflow', 'hidden');
 
@@ -174,11 +174,12 @@ function getRandomInt(min, max) {
 async function selectMap(urlMap) {
 
   // TODO: wierd glitch for substring - always added extra )" on the end
+
   var image = urlMap.substring(urlMap.lastIndexOf('/') + 1, urlMap.length - 2);
 
   var newURL = urlMap.substr(0, urlMap.lastIndexOf('/'));
   var album = newURL.substring(newURL.lastIndexOf('/') + 1).trim();
-
+  // console.log('get image map from photo... with: ', album, ' ', image)
   const pTagObj = await getPhotoTags(album, image);
 
   const gLat = parseFloat(pTagObj.GPSLatitude);
@@ -188,6 +189,7 @@ async function selectMap(urlMap) {
     lng: gLng
   };
 
+  // console.log('setting image map from photo...', newLatLng)
   await setMap(newLatLng);
 
 }
@@ -251,18 +253,18 @@ function errorHandler(err) {
   }
 }
 
-function getLocation() {
-
-  if (navigator.geolocation) {
-
-    let options = {
-      enableHighAccuracy: true,
-      timeout: 5000,
-      maximumAge: 0
-    };
-    navigator.geolocation.getCurrentPosition(mapLocation, errorHandler, options);
-
-  } else {
-    alert("Sorry, browser does not support geolocation!");
-  }
-}
+// function getLocation() {
+//
+//   if (navigator.geolocation) {
+//
+//     let options = {
+//       enableHighAccuracy: true,
+//       timeout: 5000,
+//       maximumAge: 0
+//     };
+//     navigator.geolocation.getCurrentPosition(mapLocation, errorHandler, options);
+//
+//   } else {
+//     alert("Sorry, browser does not support geolocation!");
+//   }
+// }

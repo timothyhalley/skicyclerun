@@ -69,10 +69,6 @@ gulp.task('copy', function(done) {
     .pipe(changed('../vendor/jquery'))
     .pipe(gulp.dest('../vendor/jquery'))
 
-  gulp.src(['node_modules/tether/dist/js/*.js'])
-    .pipe(changed('../vendor/tether'))
-    .pipe(gulp.dest('../vendor/tether'))
-
   gulp.src(['node_modules/jquery.easing/*.js'])
     .pipe(changed('../vendor/jquery-easing'))
     .pipe(gulp.dest('../vendor/jquery-easing'))
@@ -80,27 +76,6 @@ gulp.task('copy', function(done) {
   gulp.src(['node_modules/normalize.css/*.css'])
     .pipe(changed('../vendor/normalize.css'))
     .pipe(gulp.dest('../vendor/normalize.css'))
-
-  gulp.src([
-      'node_modules/font-awesome/**',
-      '!node_modules/font-awesome/**/*.map',
-      '!node_modules/font-awesome/.npmignore',
-      '!node_modules/font-awesome/*.txt',
-      '!node_modules/font-awesome/*.md',
-      '!node_modules/font-awesome/*.json'
-    ])
-    .pipe(changed('../vendor/font-awesome'))
-    .pipe(gulp.dest('../vendor/font-awesome'))
-
-  // scrollmagic min js files
-  gulp.src(['node_modules/scrollmagic/scrollmagic/minified/**/*'])
-    .pipe(changed('../vendor/scrollmagic'))
-    .pipe(gulp.dest('../vendor/scrollmagic'))
-
-  // GSAP (greensocks) min js files
-  gulp.src(['node_modules/gsap/src/minified/**/*'])
-    .pipe(changed('../vendor/gsap'))
-    .pipe(gulp.dest('../vendor/gsap'))
 
   // masonry-layout for photo GRID CSS
   gulp.src(['node_modules/masonry-layout/dist/masonry.pkgd.min.js'])
